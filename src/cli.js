@@ -8,12 +8,12 @@ import { downloadSpdxCorpus } from './spdx-client.js';
 import { rankMatches } from './matcher.js';
 
 function printHelp() {
-  console.log(`spdx-license-diff-cli
+  console.log(`glossina
 
 Compare pasted text against the SPDX License List.
 
 Usage:
-  spdx-license-diff [options]
+  glossina [options]
 
 Options:
   -t, --text <value>       Text input to compare directly
@@ -26,7 +26,7 @@ Options:
 
 Input behavior:
   If --text and --file are omitted, the command reads from stdin.
-  Example: pbpaste | spdx-license-diff --top 5
+  Example: pbpaste | glossina --top 5
 `);
 }
 

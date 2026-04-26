@@ -1,4 +1,4 @@
-# SPDX License Diff CLI
+# glossina 
 
 A command line tool that compares user-provided text against SPDX licenses and exceptions, then reports the best matches.
 
@@ -39,6 +39,10 @@ yarn start -- --file ./LICENSE --json
 
 - The tool downloads SPDX data from `https://spdx.org/licenses/` at runtime.
 - For reproducible/offline workflows, you can fork and extend this project with local cache support.
+
+## Project name
+
+This project/repo has been renamed to **glossina**.
 
 ## License
 

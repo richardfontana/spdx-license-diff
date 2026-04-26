@@ -1,7 +1,7 @@
 {
-  "name": "spdx-license-diff-cli",
+  "name": "glossina",
   "version": "0.1.0",
-  "description": "CLI tool to diff input text against SPDX licenses",
+  "description": "Glossina CLI tool to diff input text against SPDX licenses",
   "license": "GPL-3.0-or-later",
   "scripts": {
     "start": "node ./src/cli.js",
@@ -50,6 +50,6 @@
   },
   "type": "module",
   "bin": {
-    "spdx-license-diff": "./src/cli.js"
+    "glossina": "./src/cli.js"
   }
 }

@@ -1,12 +1,12 @@
 {
   "name": "glossina",
   "version": "0.1.0",
-  "description": "Glossina CLI tool to diff input text against SPDX licenses",
+  "description": "Python CLI tool to diff input text against SPDX licenses",
   "license": "GPL-3.0-or-later",
   "scripts": {
-    "start": "node ./src/cli.js",
-    "lint": "eslint app src",
-    "test": "yarn lint && node ./src/cli.js --help"
+    "start": "python -m glossina.cli",
+    "lint": "eslint app",
+    "test": "python -m glossina.cli --help"
   },
   "engines": {
     "node": ">=20.8.1"
@@ -48,8 +48,5 @@
     "jquery": "latest",
     "underscore": "latest"
   },
-  "type": "module",
-  "bin": {
-    "glossina": "./src/cli.js"
-  }
+  "type": "module"
 }

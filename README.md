@@ -1,29 +1,31 @@
-# glossina 
+# glossina
 
-A command line tool that compares user-provided text against SPDX licenses and exceptions, then reports the best matches.
+A Python command line tool that compares user-provided text against SPDX licenses and exceptions, then reports the best matches.
 
 ## Install
 
 ```bash
-yarn install
+python -m venv .venv
+source .venv/bin/activate
+pip install -e .
 ```
 
 ## Usage
 
 ```bash
-yarn start -- --text "Permission is hereby granted, free of charge..."
+glossina --text "Permission is hereby granted, free of charge..."
 ```
 
 You can also pipe text:
 
 ```bash
-cat LICENSE | yarn start -- --top 5
+cat LICENSE | glossina --top 5
 ```
 
 Or read from a file:
 
 ```bash
-yarn start -- --file ./LICENSE --json
+glossina --file ./LICENSE --json
 ```
 
 ## Options
@@ -38,7 +40,7 @@ yarn start -- --file ./LICENSE --json
 ## Notes
 
 - The tool downloads SPDX data from `https://spdx.org/licenses/` at runtime.
-- For reproducible/offline workflows, you can fork and extend this project with local cache support.
+- For reproducible/offline workflows, extend the project with local cache support.
 
 ## Project name
 

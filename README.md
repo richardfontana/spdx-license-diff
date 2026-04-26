@@ -1,4 +1,4 @@
-# glossina
+# glossina 
 
 A command line tool that compares user-provided text against SPDX licenses and exceptions, then reports the best matches.
 

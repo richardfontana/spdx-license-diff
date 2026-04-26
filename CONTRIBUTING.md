@@ -1,40 +1,35 @@
 # Contributing
-We love your input! We want to make contributing to this project as easy and transparent as possible, whether it's:
 
-    - Reporting a bug
-    - Discussing the current state of the code
-    - Submitting a fix
-    - Proposing new features
-    - Becoming a maintainer
+Thanks for contributing to **glossina**.
 
-## We Develop with Github
-We use github to host code, to track issues and feature requests, as well as accept pull requests.
+## Development setup
 
-## We Use [Github Flow](https://guides.github.com/introduction/flow/index.html), So All Code Changes Happen Through Pull Requests
-Pull requests are the best way to propose changes to the codebase (we use [Github Flow](https://guides.github.com/introduction/flow/index.html)). We actively welcome your pull requests:
+```bash
+python -m venv .venv
+source .venv/bin/activate
+pip install -e .
+```
 
-  1. Fork the repo and create your branch from `master`.
-  1. Make sure your code [lints](#Use a Consistent Coding Style).
-  1. Issue that pull request!
+## Local checks
 
-## Report bugs using Github's [issues](https://github.com/spdx/spdx-license-diff/issues/new)
-We use GitHub issues to track public bugs. Report a bug by [opening a new issue](https://github.com/spdx/spdx-license-diff/issues/new); it's that easy!
+```bash
+python -m glossina.cli --help
+python -m py_compile glossina/*.py
+```
 
-## Get coding!
-[Start here](docs/DEVELOPMENT.md)
+## Pull requests
 
-## Use a Consistent Coding Style
+1. Create a branch from `master`.
+2. Keep changes focused and include tests/checks in your PR description.
+3. Open a PR with a short summary and validation output.
 
-- [JavaScript Standard Style](https://standardjs.com/) - We use [eslint](https://eslint.org/) and provide a [config file](.eslintrc.js).
-- Use SPDX-License-Identifiers:
-  - The SPDX license identifier shall be added at the first possible line in a file which can contain a comment.
-  - `// SPDX-License-Identifier: (GPL-3.0-or-later AND Apache-2.0)
-`
+## Reporting bugs
+
+Please open an issue with:
+- the command you ran,
+- expected vs. actual behavior,
+- and sample input text (if shareable).
 
 ## License
-We are initially [GPL-3.0-or-later](LICENSE) but will move to Apache-2.0 as soon as we [refactor the stackoverflow code](#7).
 
-By contributing, you agree that your contributions will be dual licensed under ([GPL-3.0-or-later](https://spdx.org/licenses/GPL-3.0-or-later.html) AND [Apache-2.0](https://spdx.org/licenses/Apache-2.0.html)). You also agree to the [Developer Certificate of Origin](https://developercertificate.org/) so  please [Sign-Off](https://stackoverflow.com/questions/1962094/what-is-the-sign-off-feature-in-git-for) your commits: `git commit -s`.
-
-## References
-This document was based on a template by [briandk](https://gist.github.com/briandk/3d2e8b3ec8daf5a27a62) adapted from the open-source contribution guidelines for [Facebook's Draft](https://github.com/facebook/draft-js/blob/a9316a723f9e918afde44dea68b5f9f39b7d9b00/CONTRIBUTING.md)
+By contributing, you agree that your contributions are licensed under the project license in `LICENSE`.

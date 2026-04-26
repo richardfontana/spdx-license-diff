@@ -1,28 +1,15 @@
 {
-  "name": "spdx-license-diff",
-  "private": true,
-  "version": "0.12.1",
-  "description": "Diff selected text against SPDX licenses",
+  "name": "glossina",
+  "version": "0.1.0",
+  "description": "Python CLI tool to diff input text against SPDX licenses",
   "license": "GPL-3.0-or-later",
   "scripts": {
-    "clean": "rm -rf packages dist",
-    "dev": "webextension-toolbox dev",
-    "build": "webextension-toolbox build",
-    "firefox": "web-ext run -s dist/firefox --bc -u https://www.apache.org/licenses/LICENSE-2.0 -u https://www.gnu.org/licenses/gpl-3.0.en.html",
+    "start": "python -m glossina.cli",
     "lint": "eslint app",
-    "changelog": "gren c --generate --override -B -t all",
-    "attribution": "npx generate-attribution --production",
-    "test": "yarn lint && yarn install && yarn build chrome && yarn build firefox && yarn build opera && yarn build edge",
-    "production": "([ ! -z $GITHUB_WORKFLOW ] || (yarn lint && yarn install)) && yarn build chrome && yarn build firefox && yarn build opera && yarn build edge",
-    "buildall": "yarn clean && yarn attribution && yarn production"
+    "test": "python -m glossina.cli --help"
   },
   "engines": {
     "node": ">=20.8.1"
-  },
-  "standard": {
-    "globals": [
-      "chrome"
-    ]
   },
   "devDependencies": {
     "@babel/core": "^7.26.9",
@@ -61,106 +48,5 @@
     "jquery": "latest",
     "underscore": "latest"
   },
-  "release": {
-    "branches": [
-      "master"
-    ],
-    "plugins": [
-      "@semantic-release/commit-analyzer",
-      "@semantic-release/release-notes-generator",
-      [
-        "@semantic-release/changelog",
-        {
-          "changelogTitle": "# Changelog"
-        }
-      ],
-      [
-        "@semantic-release/npm",
-        {
-          "npmPublish": false
-        }
-      ],
-      [
-        "semantic-release-replace-plugin",
-        {
-          "replacements": [
-            {
-              "files": [
-                "app/manifest.json"
-              ],
-              "from": "\"version\": \".*\"",
-              "to": "\"version\": \"${nextRelease.version}\"",
-              "results": [
-                {
-                  "file": "app/manifest.json",
-                  "hasChanged": true,
-                  "numMatches": 1,
-                  "numReplacements": 1
-                }
-              ],
-              "countMatches": true
-            }
-          ]
-        }
-      ],
-      [
-        "@semantic-release/exec",
-        {
-          "prepareCmd": "yarn buildall"
-        }
-      ],
-      [
-        "@semantic-release/git",
-        {
-          "assets": [
-            "package.json",
-            "app/manifest.json",
-            "CHANGELOG.md"
-          ],
-          "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
-        }
-      ],
-      [
-        "@semantic-release/github",
-        {
-          "assets": [
-            {
-              "path": "packages/*.chrome.zip",
-              "label": "Chrome Extension"
-            },
-            {
-              "path": "packages/*.firefox.xpi",
-              "label": "Firefox Extension"
-            },
-            {
-              "path": "packages/*.edge.zip",
-              "label": "Edge Extension"
-            },
-            {
-              "path": "packages/*.opera.crx",
-              "label": "Opera Extension"
-            }
-          ]
-        }
-      ],
-      [
-        "semantic-release-chrome",
-        {
-          "distFolder": "dist/chrome",
-          "asset": "packages/spdx-license-diff.v${nextRelease.version}.chrome.zip",
-          "extensionId": "kfoadicmilbgnicoldjmccpaicejacdh"
-        }
-      ],
-      [
-        "semantic-release-amo",
-        {
-          "addonId": "spdx-license-diff",
-          "addonDirPath": "dist/firefox",
-          "approvalNotes": "Please see https://github.com/spdx/spdx-license-diff/blob/master/docs/DEVELOPMENT.md#building-from-source for compile instructions.",
-          "submitSource": true,
-          "submitReleaseNotes": true
-        }
-      ]
-    ]
-  }
+  "type": "module"
 }

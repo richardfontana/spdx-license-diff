@@ -53,7 +53,9 @@ export default [
                 
                 // ES2020+ globals
                 Atomics: "readonly",
-                SharedArrayBuffer: "readonly"
+                SharedArrayBuffer: "readonly",
+                process: "readonly",
+                Buffer: "readonly",
             },
             ecmaVersion: 2020,
             sourceType: "module",

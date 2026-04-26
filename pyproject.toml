@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "glossina"
+version = "0.1.0"
+description = "CLI tool to diff input text against SPDX licenses"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "GPL-3.0-or-later" }
+authors = [{ name = "SPDX License Diff contributors" }]
+
+[project.scripts]
+glossina = "glossina.cli:main"
+
+[tool.setuptools]
+packages = ["glossina"]

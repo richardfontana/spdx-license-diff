@@ -1,6 +1,12 @@
 # Testing
 
-Current lightweight checks:
+Run the unit test suite:
+
+```bash
+python -m unittest discover -s tests -v
+```
+
+Additional lightweight checks:
 
 ```bash
 python -m py_compile glossina/*.py
